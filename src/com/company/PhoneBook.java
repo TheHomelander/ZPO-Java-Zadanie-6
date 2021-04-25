@@ -30,22 +30,30 @@ public class PhoneBook {
     }
 
     protected boolean deleteIdenticalStreetInstances() {
-
-        for (Map.Entry<NrTelefoniczny, Wpis> outerLoop : myTreeMap.entrySet()) {
-            NrTelefoniczny keyOuterLoop = outerLoop.getKey();
-            Wpis valueOuterLoop = outerLoop.getValue();
-
-            for (Map.Entry<NrTelefoniczny, Wpis> innerLoop : myTreeMap.entrySet()) {
-                NrTelefoniczny keyInnerLoop = innerLoop.getKey();
-                Wpis valueInnerLoop = innerLoop.getValue();
-
-                if (valueOuterLoop != valueInnerLoop && valueOuterLoop.returnStreet() == valueInnerLoop.returnStreet()) {
-                    myTreeMap.remove(keyInnerLoop);
-                    return true;
-                }
-
+        try {
+            List<Wpis> lw = new ArrayList<>();
+            for (Map.Entry<NrTelefoniczny, Wpis> outerLoop : myTreeMap.entrySet()) {
+                Wpis valueOuterLoop = outerLoop.getValue();
+                lw.add(valueOuterLoop);
             }
 
+            int arraySize = lw.size();
+
+            for (int i = 0; i < arraySize; i++) {
+                for (int j = i; j < arraySize; j++) {
+                    Wpis innerWpis = lw.get(j);
+                    if (innerWpis == null) break;
+                    if (lw.get(i) != innerWpis && lw.get(i).returnStreet().equals(innerWpis.returnStreet()) && innerWpis.returnStreet() != null) {
+                        if (innerWpis instanceof Osoba) {
+                            myTreeMap.remove(((Osoba) innerWpis).getPhoneNumber());
+                            lw.set(j, null);
+                        }
+                    }
+                }
+            }
+            return true;
+        }catch (Exception e){
+            System.out.println("Exception while deleting copies " + e);
         }
         return false;
     }
