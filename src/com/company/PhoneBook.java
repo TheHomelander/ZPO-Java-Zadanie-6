@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class PhoneBook {
     private TreeMap<NrTelefoniczny, Wpis> myTreeMap = new TreeMap<>();
@@ -31,8 +29,27 @@ public class PhoneBook {
         return printMessage;
     }
 
-    protected void deleteIdenticalStreetInstances(){
+    protected boolean deleteIdenticalStreetInstances() {
 
+        for (Map.Entry<NrTelefoniczny, Wpis> outerLoop : myTreeMap.entrySet()) {
+            NrTelefoniczny keyOuterLoop = outerLoop.getKey();
+            Wpis valueOuterLoop = outerLoop.getValue();
+
+            for (Map.Entry<NrTelefoniczny, Wpis> innerLoop : myTreeMap.entrySet()) {
+                NrTelefoniczny keyInnerLoop = innerLoop.getKey();
+                Wpis valueInnerLoop = innerLoop.getValue();
+
+                if (valueOuterLoop != valueInnerLoop && valueOuterLoop.returnStreet() == valueInnerLoop.returnStreet()) {
+                    myTreeMap.remove(keyInnerLoop);
+                    return true;
+                }
+
+            }
+
+        }
+        return false;
     }
+
+
 
 }

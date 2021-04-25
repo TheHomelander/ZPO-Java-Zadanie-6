@@ -2,5 +2,6 @@ package com.company;
 
 public abstract class Wpis {
 
-    abstract String Opis();
+    protected abstract String Opis();
+    protected abstract String returnStreet();
 }

@@ -17,6 +17,11 @@ public class Main {
                                 "4", new NrTelefoniczny(48,222222222)
                                         );
 
+        Osoba osobaInstance3 = new Osoba("Bartosz", "Karłowicz", "Sosnowiec",
+                                         "Aleja Politechniki","POSTCODE2","23",
+                                  "4", new NrTelefoniczny(48,222262222)
+                                          );
+
         Firma firmaInstance1 = new Firma("Januszex1", "firma city1", "Company Street1",
                                 "POSTCODE3","CompanyBuilding1","CompanyApartment1",
                                         new NrTelefoniczny(48, 333333333)
@@ -29,11 +34,13 @@ public class Main {
 
         myPhoneBook.addPosition(osobaInstance1);
         myPhoneBook.addPosition(osobaInstance2);
+        myPhoneBook.addPosition(osobaInstance3);
         myPhoneBook.addPosition(firmaInstance1);
         myPhoneBook.addPosition(firmaInstance2);
 
         System.out.println(myPhoneBook.printTreeMap());
-
+        myPhoneBook.deleteIdenticalStreetInstances();
+        System.out.println(myPhoneBook.printTreeMap());
 
     }
 }

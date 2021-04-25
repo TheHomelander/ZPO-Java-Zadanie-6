@@ -20,13 +20,18 @@ public class Firma extends Wpis{
         this.phoneNumber = phoneNumber;
     }
 
-    String Opis() {
+    protected String Opis() {
         return "Firma: " + name + "\n"
                 + street + " "
                 + buildingNumber + "/"
                 + apartmentNumber + "\n"
                 + postCode + " "
                 + city + "\n";
+    }
+
+
+    protected String returnStreet() {
+        return street;
     }
 
     public String getName() {

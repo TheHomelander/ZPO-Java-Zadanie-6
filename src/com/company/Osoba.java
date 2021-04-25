@@ -21,7 +21,8 @@ public class Osoba extends Wpis {
         this.phoneNumber = phoneNumber;
     }
 
-    String Opis() {
+    @Override
+    protected String Opis() {
         return "Osoba:" + name + " "
                 + surname + "\n"
                 + street + " "
@@ -29,6 +30,11 @@ public class Osoba extends Wpis {
                 + apartmentNumber + "\n"
                 + postCode + " "
                 + city + "\n";
+    }
+
+    @Override
+    protected String returnStreet() {
+        return street;
     }
 
 
@@ -87,4 +93,5 @@ public class Osoba extends Wpis {
     public void setApartmentNumber(String apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
     }
+
 }
