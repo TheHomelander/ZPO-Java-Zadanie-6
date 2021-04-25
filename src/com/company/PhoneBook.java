@@ -32,20 +32,29 @@ public class PhoneBook {
     protected boolean deleteIdenticalStreetInstances() {
         try {
             List<Wpis> lw = new ArrayList<>();
-            for (Map.Entry<NrTelefoniczny, Wpis> outerLoop : myTreeMap.entrySet()) {
+
+            for (Map.Entry<NrTelefoniczny, Wpis> outerLoop : myTreeMap.entrySet())
+            {
                 Wpis valueOuterLoop = outerLoop.getValue();
                 lw.add(valueOuterLoop);
             }
 
             int arraySize = lw.size();
 
-            for (int i = 0; i < arraySize; i++) {
-                for (int j = i; j < arraySize; j++) {
+            for (int i = 0; i < arraySize; i++)
+            {
+                for (int j = i + 1; j < arraySize; j++)
+                {
                     Wpis innerWpis = lw.get(j);
-                    if (innerWpis == null) break;
-                    if (lw.get(i) != innerWpis && lw.get(i).returnStreet().equals(innerWpis.returnStreet()) && innerWpis.returnStreet() != null) {
-                        if (innerWpis instanceof Osoba) {
+                    if (innerWpis == null) continue;
+                    if (lw.get(i) != innerWpis && lw.get(i).returnStreet().equals(innerWpis.returnStreet()) && innerWpis.returnStreet() != null)
+                    {
+                        if (innerWpis instanceof Osoba)
+                        {
                             myTreeMap.remove(((Osoba) innerWpis).getPhoneNumber());
+                            lw.set(j, null);
+                        } else if (innerWpis instanceof Firma){
+                            myTreeMap.remove(((Firma) innerWpis).getPhoneNumber());
                             lw.set(j, null);
                         }
                     }
