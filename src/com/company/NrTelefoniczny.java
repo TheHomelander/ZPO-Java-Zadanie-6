@@ -36,4 +36,9 @@ public class NrTelefoniczny implements Comparable<NrTelefoniczny>{
         }else
             return this.nrKierunkowy - o.nrKierunkowy;
     }
+
+    protected String printPhoneNumber (){
+        return "" + nrKierunkowy + nrTelefonu;
+    }
+
 }
