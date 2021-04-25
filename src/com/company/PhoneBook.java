@@ -47,7 +47,7 @@ public class PhoneBook {
                 {
                     Wpis innerWpis = lw.get(j);
                     if (innerWpis == null) continue;
-                    if (lw.get(i) != innerWpis && lw.get(i).returnStreet().equals(innerWpis.returnStreet()) && innerWpis.returnStreet() != null)
+                    if (lw.get(i) != innerWpis && lw.get(i).returnStreet().equalsIgnoreCase(innerWpis.returnStreet()) && innerWpis.returnStreet() != null)
                     {
                         if (innerWpis instanceof Osoba)
                         {
