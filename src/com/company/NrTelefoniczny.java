@@ -5,27 +5,30 @@ public class NrTelefoniczny implements Comparable<NrTelefoniczny>{
     private int nrTelefonu;
 
 
-    public NrTelefoniczny(int nrKierunkowy, int nrTelefonu) {
+    protected NrTelefoniczny(int nrKierunkowy, int nrTelefonu) {
         this.nrKierunkowy = nrKierunkowy;
         this.nrTelefonu = nrTelefonu;
     }
 
-    public int getNrKierunkowy() {
+    protected int getNrKierunkowy() {
         return nrKierunkowy;
     }
 
-    public void setNrKierunkowy(int nrKierunkowy) {
+    protected void setNrKierunkowy(int nrKierunkowy) {
         this.nrKierunkowy = nrKierunkowy;
     }
 
-    public int getNrTelefonu() {
+    protected int getNrTelefonu() {
         return nrTelefonu;
     }
 
-    public void setNrTelefonu(int nrTelefonu) {
+    protected void setNrTelefonu(int nrTelefonu) {
         this.nrTelefonu = nrTelefonu;
     }
 
+    protected String printPhoneNumber (){
+        return "" + nrKierunkowy + nrTelefonu;
+    }
 
     @Override
     public int compareTo(NrTelefoniczny o) {
@@ -37,8 +40,6 @@ public class NrTelefoniczny implements Comparable<NrTelefoniczny>{
             return this.nrKierunkowy - o.nrKierunkowy;
     }
 
-    protected String printPhoneNumber (){
-        return "" + nrKierunkowy + nrTelefonu;
-    }
+
 
 }

@@ -38,59 +38,59 @@ public class Osoba extends Wpis {
     }
 
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public String getSurname() {
+    protected String getSurname() {
         return surname;
     }
 
-    public NrTelefoniczny getPhoneNumber() {
+    protected NrTelefoniczny getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(NrTelefoniczny phoneNumber) {
+    protected void setPhoneNumber(NrTelefoniczny phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getCity() {
+    protected String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    protected void setCity(String city) {
         this.city = city;
     }
 
-    public String getStreet() {
+    protected String getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
+    protected void setStreet(String street) {
         this.street = street;
     }
 
-    public String getPostCode() {
+    protected String getPostCode() {
         return postCode;
     }
 
-    public void setPostCode(String postCode) {
+    protected void setPostCode(String postCode) {
         this.postCode = postCode;
     }
 
-    public String getBuildingNumber() {
+    protected String getBuildingNumber() {
         return buildingNumber;
     }
 
-    public void setBuildingNumber(String buildingNumber) {
+    protected void setBuildingNumber(String buildingNumber) {
         this.buildingNumber = buildingNumber;
     }
 
-    public String getApartmentNumber() {
+    protected String getApartmentNumber() {
         return apartmentNumber;
     }
 
-    public void setApartmentNumber(String apartmentNumber) {
+    protected void setApartmentNumber(String apartmentNumber) {
         this.apartmentNumber = apartmentNumber;
     }
 

@@ -8,25 +8,34 @@ public class PhoneBook {
 
 
     protected boolean addPosition (Wpis tw){
-        if( tw == null) return false;
-        if( tw instanceof Osoba ){
-            myTreeMap.put(((Osoba) tw).getPhoneNumber(), tw);
-        }else if ( tw instanceof Firma ){
-            myTreeMap.put(((Firma) tw).getPhoneNumber(), tw);
+        try {
+            if (tw == null) return false;
+            if (tw instanceof Osoba) {
+                myTreeMap.put(((Osoba) tw).getPhoneNumber(), tw);
+            } else if (tw instanceof Firma) {
+                myTreeMap.put(((Firma) tw).getPhoneNumber(), tw);
+            }
+            return true;
+        }catch (Exception e){
+            System.out.println("Exception adding position to TreeMap: " + e);
         }
-        return true;
+        return false;
     }
 
     protected String printTreeMap(){
-        Set<NrTelefoniczny> keys = myTreeMap.keySet();
-        String printMessage = "========== PHONEBOOK CONTENTS ==========\n\n";
-        for (Iterator i = keys.iterator(); i.hasNext();)
-        {
-            NrTelefoniczny key = (NrTelefoniczny) i.next();
-            Wpis value = (Wpis) myTreeMap.get(key);
-            printMessage = printMessage + key.printPhoneNumber() + "\n" + value.Opis() + "\n";
+        try {
+            Set<NrTelefoniczny> keys = myTreeMap.keySet();
+            String printMessage = "========== PHONEBOOK CONTENTS ==========\n\n";
+            for (Iterator i = keys.iterator(); i.hasNext(); ) {
+                NrTelefoniczny key = (NrTelefoniczny) i.next();
+                Wpis value = (Wpis) myTreeMap.get(key);
+                printMessage = printMessage + key.printPhoneNumber() + "\n" + value.Opis() + "\n";
+            }
+            return printMessage;
+        }catch (Exception e){
+            System.out.println("Error printing TreeMap " + e);
         }
-        return printMessage;
+        return null;
     }
 
     protected boolean deleteIdenticalStreetInstances() {
@@ -39,7 +48,7 @@ public class PhoneBook {
                 lw.add(valueOuterLoop);
             }
 
-            int arraySize = lw.size();
+            final int arraySize = lw.size();
 
             for (int i = 0; i < arraySize; i++)
             {

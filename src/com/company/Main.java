@@ -3,7 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
 
         PhoneBook myPhoneBook = new PhoneBook();
 
@@ -21,14 +21,16 @@ public class Main {
                                          "Aleja Politechniki","POSTCODE2","23",
                                   "4", new NrTelefoniczny(48,222262222)
                                           );
+
         Osoba osobaInstance4 = new Osoba("Bartosz", "Karłowicz", "Sosnowiec",
-                "Aleja Politechniki","POSTCODE2","23",
-                "4", new NrTelefoniczny(48,222262321)
-        );
+                                         "Aleja Politechniki","POSTCODE2","23",
+                                "4", new NrTelefoniczny(48,222262321)
+                                        );
+
         Osoba osobaInstance5 = new Osoba("Bartosz", "Maranada", "Sosnowiec",
-                "REPEAT","POSTCODE2","23",
-                "4", new NrTelefoniczny(48,66269042)
-        );
+                                         "REPEAT","POSTCODE2","23",
+                                "4", new NrTelefoniczny(48,66269042)
+                                        );
 
         Firma firmaInstance1 = new Firma("Januszex1", "firma city1", "Company Street1",
                                 "POSTCODE3","CompanyBuilding1","CompanyApartment1",
