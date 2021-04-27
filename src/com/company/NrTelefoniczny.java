@@ -34,10 +34,14 @@ public class NrTelefoniczny implements Comparable<NrTelefoniczny>{
     public int compareTo(NrTelefoniczny o) {
         if(this.nrKierunkowy == o.nrKierunkowy){
             if(this.nrTelefonu == o.nrTelefonu)return 0;
+            else if ( this.nrTelefonu < o.nrTelefonu )
+                return -1;
             else
-                return this.nrTelefonu - o.nrTelefonu;
-        }else
-            return this.nrKierunkowy - o.nrKierunkowy;
+                return 1;
+        }else if (this.nrKierunkowy < o.nrKierunkowy)
+            return -1;
+        else
+            return 1;
     }
 
 
